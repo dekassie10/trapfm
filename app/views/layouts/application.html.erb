@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Look out! It's a trap!">
+	<meta name="author" content="@victorvulovic">
+  <title>Trapfm</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/simple-sidebar.css" rel="stylesheet">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+
+  <script type="text/javascript" src="scripts/soundcloud.player.api.js"></script>
+  <script type="text/javascript">
+       soundcloud.addEventListener('onPlayerReady', function(player, data) {
+         player.api_play();
+       });
+  </script>
+
+</head>
+<body>
+	
+	<div id="wrapper" class="toggled">
+		<%= render 'layouts/radiobuttons' %>
+		<%= yield %>
+	</div>
+
+	<script src="js/jquery.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="../../dist/js/bootstrap.min.js"></script>
+	<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+	<script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+  </script>
+</body>
+</html>
